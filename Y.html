@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Swiggy Clone</title>
+
+<!-- Plausible Analytics -->
+<script defer data-domain="yourdomain.com" src="https://plausible.io/js/script.js"></script>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background: #f5f5f5;
+}
+
+/* Navbar */
+.navbar {
+  background: #fc8019;
+  color: white;
+  padding: 15px 40px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.navbar h1 {
+  font-size: 24px;
+}
+
+/* Hero */
+.hero {
+  background: url('https://images.unsplash.com/photo-1600891964599-f61ba0e24092') center/cover;
+  height: 300px;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+/* Section */
+.section {
+  padding: 40px;
+}
+
+.section h2 {
+  margin-bottom: 20px;
+}
+
+/* Cards */
+.cards {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.card {
+  background: white;
+  width: 280px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.card-content {
+  padding: 15px;
+}
+
+.card h3 {
+  margin-bottom: 5px;
+}
+
+.card p {
+  color: gray;
+  font-size: 14px;
+}
+
+.price {
+  margin: 10px 0;
+  font-weight: bold;
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  background: #fc8019;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+button:hover {
+  background: #e76f00;
+}
+
+/* Status */
+#status {
+  text-align: center;
+  margin: 20px;
+  font-size: 18px;
+  color: green;
+}
+
+/* Footer */
+.footer {
+  background: #222;
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- Navbar -->
+<div class="navbar">
+  <h1>Swiggy</h1>
+  <div>Home | Offers | Cart</div>
+</div>
+
+<!-- Hero -->
+<div class="hero">
+  Delicious food delivered to you 🍕
+</div>
+
+<!-- Restaurants -->
+<div class="section">
+  <h2>Top Restaurants</h2>
+
+  <div class="cards">
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1593560708920-61dd98c46a4e">
+      <div class="card-content">
+        <h3>Pizza Palace</h3>
+        <p>Italian • Fast Food</p>
+        <div class="price">₹250</div>
+        <button onclick="order('Pizza')">Order Now</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1550547660-d9450f859349">
+      <div class="card-content">
+        <h3>Burger Hub</h3>
+        <p>Burgers • Snacks</p>
+        <div class="price">₹150</div>
+        <button onclick="order('Burger')">Order Now</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1604908176997-125f25cc6f3d">
+      <div class="card-content">
+        <h3>Biryani House</h3>
+        <p>Indian • Biryani</p>
+        <div class="price">₹200</div>
+        <button onclick="order('Biryani')">Order Now</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Offers -->
+<div class="section">
+  <h2>Offers for You</h2>
+
+  <div class="cards">
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1606787366850-de6330128bfc">
+      <div class="card-content">
+        <h3>50% OFF</h3>
+        <p>On first order</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c">
+      <div class="card-content">
+        <h3>Free Delivery</h3>
+        <p>Above ₹199</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Status -->
+<h2 id="status"></h2>
+
+<!-- Footer -->
+<div class="footer">
+  © 2026 Swiggy Clone | Built for Analytics Demo
+</div>
+
+<script>
+function order(item) {
+  document.getElementById("status").innerText =
+    "✅ Order placed for " + item;
+
+  // Plausible Goal Conversion
+  plausible('OrderPlaced', {
+    props: {
+      item: item
+    }
+  });
+}
+</script>
+
+</body>
+</html>
